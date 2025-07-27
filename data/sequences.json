@@ -1,0 +1,20 @@
+{
+    "chapter1": {
+        "sequence1_bosquet": {
+            "name": "reveil dans le bosquet",
+            "type": "exploration",
+            "required": true,
+            "instinct_dominant": "intution",
+            "ink_file:": "chapter1/sequence1_bosquet.ink",
+            "unlock_conditions": []
+        },
+        "sequence2_animal" : {
+            "name": "rencontre avec l'animal",
+            "type": "social",
+            "required":true,
+            "instinct_dominant": "lien",
+            "ink_file": "chapter1/sequence2_animal.ink",
+            "unlock_conditions": ["sequence1_tier2"]
+        }
+    }
+}

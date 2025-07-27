@@ -1,0 +1,12 @@
+{
+    "lien_seduisant": {
+        "name": "séduisant",
+        "instinct": "lien",
+        "description": "Vous avez un charme naturel déveoloppé",
+        "new_actions": ["seduire", "charmer"],
+        "modified_actions": {
+            "questionner_charme": "questionner_charme"
+        },
+        "prerequisites": ["lien_tier3_success"]
+    }
+}
