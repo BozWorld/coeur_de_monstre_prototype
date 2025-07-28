@@ -14,7 +14,19 @@ config/name="Coeur_De_Monstre_prototype"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://asset/icon.svg"
 
+[autoload]
+
+_InkRuntime="*res://addons/inkgd/ink_runtime.gd"
+
 [display]
 
 window/size/viewport_width=720
 window/size/viewport_height=440
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/inkgd/plugin.cfg")
+
+[inkgd]
+
+register_templates=true

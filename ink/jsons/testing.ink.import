@@ -1,0 +1,14 @@
+[remap]
+
+importer="inkgd.ink"
+type="Resource"
+uid="uid://duri2kmamsi05"
+path="res://.godot/imported/testing.ink-77f37660442ef73ee17588c80c2f7022.res"
+
+[deps]
+
+source_file="res://ink/jsons/testing.ink"
+dest_files=["res://.godot/imported/testing.ink-77f37660442ef73ee17588c80c2f7022.res"]
+
+[params]
+

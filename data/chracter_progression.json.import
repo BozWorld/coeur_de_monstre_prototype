@@ -1,0 +1,14 @@
+[remap]
+
+importer="inkgd.ink.json"
+type="Resource"
+uid="uid://bhecnvb47hjub"
+valid=false
+
+[deps]
+
+source_file="res://data/chracter_progression.json"
+
+[params]
+
+compress=true

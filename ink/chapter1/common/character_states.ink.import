@@ -1,0 +1,14 @@
+[remap]
+
+importer="inkgd.ink"
+type="Resource"
+uid="uid://qnykgou171yy"
+path="res://.godot/imported/character_states.ink-db0c434153d669771492c92cdc95830f.res"
+
+[deps]
+
+source_file="res://ink/chapter1/common/character_states.ink"
+dest_files=["res://.godot/imported/character_states.ink-db0c434153d669771492c92cdc95830f.res"]
+
+[params]
+

@@ -1,0 +1,14 @@
+[remap]
+
+importer="inkgd.ink"
+type="Resource"
+uid="uid://glsg1y7wemx2"
+path="res://.godot/imported/transitions.ink-92bacd4e2d904e38b77ae9063a1f8b32.res"
+
+[deps]
+
+source_file="res://ink/chapter1/common/transitions.ink"
+dest_files=["res://.godot/imported/transitions.ink-92bacd4e2d904e38b77ae9063a1f8b32.res"]
+
+[params]
+

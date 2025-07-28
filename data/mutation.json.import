@@ -1,0 +1,14 @@
+[remap]
+
+importer="inkgd.ink.json"
+type="Resource"
+uid="uid://ce4mbh6yqydnn"
+valid=false
+
+[deps]
+
+source_file="res://data/mutation.json"
+
+[params]
+
+compress=true
