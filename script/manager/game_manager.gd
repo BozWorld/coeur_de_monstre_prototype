@@ -12,7 +12,7 @@ signal sequence_completed(results)
 signal crisis_triggered(crisis_type)
 signal chapter_completed(chapter_name)
 
-func start_seuqence(sequence_name: String):
+func start_sequence(sequence_name: String):
     # lance une sequence ( exploration / combat / social)
     pass
     

@@ -11,13 +11,18 @@ config_version=5
 [application]
 
 config/name="Coeur_De_Monstre_prototype"
+run/main_scene="uid://dmatam0ujwutt"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://asset/icon.svg"
 
 [autoload]
 
 _InkRuntime="*res://addons/inkgd/ink_runtime.gd"
-GameManager="*res://script/manager/game_manager.gd"
+_DiceManager="*res://script/manager/dice_manager.gd"
+_GameManager="*res://script/manager/game_manager.gd"
+_UiManager="*res://script/manager/ui_manager.gd"
+_CrisisManager="*res://script/manager/crisis_manager.gd"
+_StoryManager="*res://script/manager/story_manager.gd"
 
 [display]
 
@@ -31,3 +36,7 @@ enabled=PackedStringArray("res://addons/inkgd/plugin.cfg")
 [inkgd]
 
 register_templates=true
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
