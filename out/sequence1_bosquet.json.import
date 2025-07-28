@@ -1,0 +1,15 @@
+[remap]
+
+importer="inkgd.ink.json"
+type="Resource"
+uid="uid://duojvxq58gni6"
+path="res://.godot/imported/sequence1_bosquet.json-3264236b17c19c413ec39f564e8056ec.res"
+
+[deps]
+
+source_file="res://out/sequence1_bosquet.json"
+dest_files=["res://.godot/imported/sequence1_bosquet.json-3264236b17c19c413ec39f564e8056ec.res"]
+
+[params]
+
+compress=true

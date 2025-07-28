@@ -1,5 +1,6 @@
 // Dans sequence1_bosquet.ink
 // Séquence 1 : Réveil dans le bosquet - Type: Exploration - Instinct dominant: Intuition
+
 ->sequence1_start
 === sequence1_start ===
 VAR successes_count = 0

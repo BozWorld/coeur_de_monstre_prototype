@@ -10,7 +10,7 @@ func _ready() -> void:
 func _initialize_ink_player() -> void:
 	_ink_player = InkPlayer.new()
 	add_child(_ink_player)
-	_ink_player.ink_file = load("res://ink/jsons/testing_story.json")
+	_ink_player.ink_file = load("res://ink/jsons/sequence1_bosquet.json")
 	_ink_player.loads_in_background = true
 	_ink_player.connect("loaded", Callable(self, "_on_story_loaded"))
 	_ink_player.create_story()
