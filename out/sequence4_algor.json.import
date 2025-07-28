@@ -1,0 +1,15 @@
+[remap]
+
+importer="inkgd.ink.json"
+type="Resource"
+uid="uid://ogmielwt6xpc"
+path="res://.godot/imported/sequence4_algor.json-91b20226b15d1268bb8b03bea62f4787.res"
+
+[deps]
+
+source_file="res://out/sequence4_algor.json"
+dest_files=["res://.godot/imported/sequence4_algor.json-91b20226b15d1268bb8b03bea62f4787.res"]
+
+[params]
+
+compress=true

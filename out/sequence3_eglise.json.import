@@ -1,0 +1,15 @@
+[remap]
+
+importer="inkgd.ink.json"
+type="Resource"
+uid="uid://dmfkuv38olfjq"
+path="res://.godot/imported/sequence3_eglise.json-58aa6b91d388dcd7e67b67bab04cdae4.res"
+
+[deps]
+
+source_file="res://out/sequence3_eglise.json"
+dest_files=["res://.godot/imported/sequence3_eglise.json-58aa6b91d388dcd7e67b67bab04cdae4.res"]
+
+[params]
+
+compress=true

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bncpg38y1tgt6" path="res://script/debugger/dice_roller_ui_debug.gd" id="1_7x8h0"]
 [ext_resource type="FontFile" uid="uid://uo56arr134mq" path="res://asset/font/Silver.ttf" id="1_fofvp"]
 
-[node name="DiceRollerUI" type="Control"]
+[node name="DiceRollerUI" type="Control" node_paths=PackedStringArray("button_social", "button_adversity", "button_intuition", "button_start", "_result_label", "result_panel")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,6 +11,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_7x8h0")
+button_social = NodePath("vbox_instinct_box/panel_social/button_social")
+button_adversity = NodePath("vbox_instinct_box/panel_adversite/button_adversite")
+button_intuition = NodePath("vbox_instinct_box/panel_intution/button_intution")
+button_start = NodePath("bt_start")
+_result_label = NodePath("result_panel/result_label")
+result_panel = NodePath("result_panel")
 
 [node name="panel_instincs" type="Panel" parent="."]
 layout_mode = 1
@@ -145,6 +151,34 @@ theme_override_font_sizes/font_size = 25
 text = "ROLL"
 metadata/_edit_use_anchors_ = true
 
-[connection signal="pressed" from="vbox_instinct_box/panel_social/button_social" to="." method="_on_button_social_pressed"]
-[connection signal="pressed" from="vbox_instinct_box/panel_adversite/button_adversite" to="." method="_on_button_adversite_pressed"]
-[connection signal="pressed" from="vbox_instinct_box/panel_intution/button_intution" to="." method="_on_button_intution_pressed"]
+[node name="bt_start" type="Button" parent="."]
+visible = false
+offset_left = 522.0
+offset_top = 203.0
+offset_right = 633.0
+offset_bottom = 244.0
+text = "START"
+
+[node name="result_panel" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.702778
+anchor_top = 0.120455
+anchor_right = 0.891667
+anchor_bottom = 0.427273
+offset_right = -6.10352e-05
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="result_label" type="RichTextLabel" parent="result_panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("1_fofvp")
+theme_override_font_sizes/normal_font_size = 35
+fit_content = true

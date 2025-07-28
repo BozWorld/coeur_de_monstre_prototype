@@ -1,0 +1,15 @@
+[remap]
+
+importer="inkgd.ink.json"
+type="Resource"
+uid="uid://ct2sldoy8oxne"
+path="res://.godot/imported/character_states.json-70eba507fd8e73a6e657e68850d41806.res"
+
+[deps]
+
+source_file="res://out/character_states.json"
+dest_files=["res://.godot/imported/character_states.json-70eba507fd8e73a6e657e68850d41806.res"]
+
+[params]
+
+compress=true

@@ -1,0 +1,15 @@
+[remap]
+
+importer="inkgd.ink.json"
+type="Resource"
+uid="uid://x5glarsrpdb8"
+path="res://.godot/imported/sequence_5_maison.json-3d654ce42d50f2582874f004fea95a81.res"
+
+[deps]
+
+source_file="res://out/sequence_5_maison.json"
+dest_files=["res://.godot/imported/sequence_5_maison.json-3d654ce42d50f2582874f004fea95a81.res"]
+
+[params]
+
+compress=true

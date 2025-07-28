@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="PlayerData" load_steps=2 format=3 uid="uid://bqbd0s3i802xq"]
+
+[ext_resource type="Script" uid="uid://dh06csj5afdqa" path="res://script/data/player_data.gd" id="1_cylk5"]
+
+[resource]
+script = ExtResource("1_cylk5")
+health_points = 8
+instinc_dice = {
+"adversité": 2,
+"intution": 1,
+"lien": 2
+}
+mutation = Array[String](["seduction"])
+companions = Array[String]([])
+inventory = Array[String]([])
+completed_sequences = Array[String]([])
+chapter_progress = {}

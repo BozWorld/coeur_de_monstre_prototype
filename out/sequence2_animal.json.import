@@ -1,0 +1,15 @@
+[remap]
+
+importer="inkgd.ink.json"
+type="Resource"
+uid="uid://1wk6n1iq62c7"
+path="res://.godot/imported/sequence2_animal.json-a7886f231a886cba094b1f909fd20d94.res"
+
+[deps]
+
+source_file="res://out/sequence2_animal.json"
+dest_files=["res://.godot/imported/sequence2_animal.json-a7886f231a886cba094b1f909fd20d94.res"]
+
+[params]
+
+compress=true
