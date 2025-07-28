@@ -9,6 +9,23 @@ func load_chapter(chapter_name: String):
     # Charge un chapitre spécifique de l'histoire
     pass
 
+func process_ink_tags(tags: Array) -> Dictionary:
+    var action_data = {}
+    for tag in tags:
+        var parts = tag.split(":")
+        action_data[parts[0]] = parts[1]
+    return action_data
+
+func execute_consequences(consequences: String):
+    for consequence in consequences.split(","):
+        var parts = consequence.split(":")
+        if consequence.begins_with("+"):
+            # ajouter une information
+            pass
+        elif consequence.begins_with("-"):
+            # retirer quelque chose
+            pass
+
 func start_sequence(sequence_name: String):
     # Lance une séquence d'histoire
     pass

@@ -17,6 +17,7 @@ config/icon="res://asset/icon.svg"
 [autoload]
 
 _InkRuntime="*res://addons/inkgd/ink_runtime.gd"
+GameManager="*res://script/manager/game_manager.gd"
 
 [display]
 

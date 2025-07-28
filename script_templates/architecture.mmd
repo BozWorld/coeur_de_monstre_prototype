@@ -1,0 +1,92 @@
+graph TB
+    %% Couche de données
+    subgraph "📊 DATA LAYER"
+        PD[PlayerData<br/>Resource]
+        SD[SequenceData<br/>Resource] 
+        JSON[(sequences.json<br/>mutations.json)]
+        INK[(Ink Scripts<br/>Narrative)]
+    end
+    
+    %% Gestionnaires centraux
+    subgraph "🎮 CORE MANAGERS (Singletons)"
+        GM[GameManager<br/>État global]
+        SM[StoryManager<br/>Narrative Ink]
+        DM[DiceManager<br/>Système 5d6]
+        CM[CrisisManager<br/>Mini-jeux]
+        UM[UIManager<br/>Coordination UI]
+    end
+    
+    %% Couche UI
+    subgraph "🖥️ UI LAYER"
+        subgraph "Interfaces principales"
+            EUI[ExplorationUI]
+            CUI[CombatUI] 
+            SUI[SocialUI]
+        end
+        
+        subgraph "Interfaces spécialisées"
+            DUI[DiceRollerUI]
+            CRUI[CrisisUI]
+            HUD[MainHUD<br/>PV, Stats]
+        end
+    end
+    
+    %% Mini-jeux
+    subgraph "🎯 MINI-GAMES"
+        MF[MemoryFragments<br/>Crise identité]
+        PC[PhraseChain<br/>Crise exploration]
+        WS[WordSelection<br/>Crise sociale]
+    end
+    
+    %% Flux de données
+    JSON --> GM
+    PD --> GM
+    SD --> GM
+    INK --> SM
+    
+    GM --> SM
+    GM --> DM  
+    GM --> CM
+    GM --> UM
+    
+    SM --> UM
+    DM --> UM
+    CM --> UM
+    
+    UM --> EUI
+    UM --> CUI
+    UM --> SUI
+    UM --> DUI
+    UM --> CRUI
+    UM --> HUD
+    
+    CM --> MF
+    CM --> PC
+    CM --> WS
+    
+    %% Signaux de retour
+    EUI -.-> UM
+    CUI -.-> UM
+    SUI -.-> UM
+    DUI -.-> UM
+    CRUI -.-> UM
+    
+    MF -.-> CM
+    PC -.-> CM  
+    WS -.-> CM
+    
+    UM -.-> GM
+    SM -.-> GM
+    DM -.-> GM
+    CM -.-> GM
+    
+    %% Styles
+    classDef dataStyle fill:#e1f5fe
+    classDef managerStyle fill:#f3e5f5  
+    classDef uiStyle fill:#e8f5e8
+    classDef gameStyle fill:#fff3e0
+    
+    class PD,SD,JSON,INK dataStyle
+    class GM,SM,DM,CM,UM managerStyle
+    class EUI,CUI,SUI,DUI,CRUI,HUD uiStyle
+    class MF,PC,WS gameStyle
