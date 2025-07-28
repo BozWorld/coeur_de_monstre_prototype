@@ -23,6 +23,10 @@ var printed: bool = false
 @export var button_start: Button
 @export var _result_label: RichTextLabel
 @export var result_panel: Panel
+@export var label_social_count: RichTextLabel
+@export var label_ardversite_count: RichTextLabel
+@export var label_intuition_count: RichTextLabel
+
 
 func _ready() -> void:
 	button_social.pressed.connect(_on_button_social_pressed)
@@ -60,6 +64,7 @@ func _on_button_social_pressed() -> void:
 			current_dice_count += 1
 			current_social_dice += 1
 			current_social_lvl += lancer_de_6_faces()
+			label_social_count.text = str(current_social_lvl)
 			print("Current social dice: ", current_social_dice)
 			print("Current social level: ", current_social_lvl)
 	else :
@@ -83,6 +88,7 @@ func _on_button_adversite_pressed() -> void:
 			current_dice_count += 1
 			current_adversity_dice += 1
 			current_adversity_lvl += lancer_de_6_faces()
+			label_ardversite_count.text = str(current_adversity_lvl)
 			print("Current adversity dice: ", current_adversity_dice)
 			print("Current adversity level: ", current_adversity_lvl)
 	else :
@@ -99,6 +105,7 @@ func _on_button_intution_pressed() -> void:
 			current_dice_count += 1
 			current_intuition_dice += 1
 			current_intuition_lvl += lancer_de_6_faces()
+			label_intuition_count.text = str(current_intuition_lvl)
 			print("Current intuition dice: ", current_intuition_dice)
 			print("Current intuition level: ", current_intuition_lvl)
 	else :

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bncpg38y1tgt6" path="res://script/debugger/dice_roller_ui_debug.gd" id="1_7x8h0"]
 [ext_resource type="FontFile" uid="uid://uo56arr134mq" path="res://asset/font/Silver.ttf" id="1_fofvp"]
 
-[node name="DiceRollerUI" type="Control" node_paths=PackedStringArray("button_social", "button_adversity", "button_intuition", "button_start", "_result_label", "result_panel")]
+[node name="DiceRollerUI" type="Control" node_paths=PackedStringArray("button_social", "button_adversity", "button_intuition", "button_start", "_result_label", "result_panel", "label_social_count", "label_ardversite_count", "label_intuition_count")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,10 +13,13 @@ grow_vertical = 2
 script = ExtResource("1_7x8h0")
 button_social = NodePath("vbox_instinct_box/panel_social/button_social")
 button_adversity = NodePath("vbox_instinct_box/panel_adversite/button_adversite")
-button_intuition = NodePath("vbox_instinct_box/panel_intution/button_intution")
+button_intuition = NodePath("vbox_instinct_box/panel_intuition/button_intution")
 button_start = NodePath("bt_start")
 _result_label = NodePath("result_panel/result_label")
 result_panel = NodePath("result_panel")
+label_social_count = NodePath("vbox_instinct_box/panel_social/panel_social_count/label_social_count")
+label_ardversite_count = NodePath("vbox_instinct_box/panel_adversite/panel_adversite_count2/label_adversite_count")
+label_intuition_count = NodePath("vbox_instinct_box/panel_intuition/panel_intuition_count3/label_intuition_count")
 
 [node name="panel_instincs" type="Panel" parent="."]
 layout_mode = 1
@@ -73,15 +76,36 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="button_social" type="Button" parent="vbox_instinct_box/panel_social"]
-layout_mode = 0
-anchor_left = 1.201
-anchor_right = 1.44724
-anchor_bottom = 0.970588
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.69849
+anchor_right = 1.94473
+anchor_bottom = 1.05882
 offset_left = 1.52588e-05
 theme_override_fonts/font = ExtResource("1_fofvp")
 theme_override_font_sizes/font_size = 25
 text = "ROLL"
 metadata/_edit_use_anchors_ = true
+
+[node name="panel_social_count" type="Panel" parent="vbox_instinct_box/panel_social"]
+layout_mode = 0
+offset_left = 240.0
+offset_top = -0.000167847
+offset_right = 280.0
+offset_bottom = 33.9998
+
+[node name="label_social_count" type="RichTextLabel" parent="vbox_instinct_box/panel_social/panel_social_count"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("1_fofvp")
+theme_override_font_sizes/normal_font_size = 30
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="panel_adversite" type="Panel" parent="vbox_instinct_box"]
 layout_mode = 2
@@ -107,9 +131,9 @@ vertical_alignment = 1
 [node name="button_adversite" type="Button" parent="vbox_instinct_box/panel_adversite"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 1.201
-anchor_right = 1.44724
-anchor_bottom = 1.0
+anchor_left = 1.69849
+anchor_right = 1.94473
+anchor_bottom = 1.05882
 offset_left = 1.52588e-05
 grow_horizontal = 2
 grow_vertical = 2
@@ -118,12 +142,32 @@ theme_override_font_sizes/font_size = 25
 text = "ROLL"
 metadata/_edit_use_anchors_ = true
 
-[node name="panel_intution" type="Panel" parent="vbox_instinct_box"]
+[node name="panel_adversite_count2" type="Panel" parent="vbox_instinct_box/panel_adversite"]
+layout_mode = 0
+offset_left = 240.0
+offset_top = -0.000167847
+offset_right = 280.0
+offset_bottom = 33.9998
+
+[node name="label_adversite_count" type="RichTextLabel" parent="vbox_instinct_box/panel_adversite/panel_adversite_count2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("1_fofvp")
+theme_override_font_sizes/normal_font_size = 30
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="panel_intuition" type="Panel" parent="vbox_instinct_box"]
 layout_mode = 2
 size_flags_vertical = 3
 metadata/_edit_use_anchors_ = true
 
-[node name="label_intuition" type="RichTextLabel" parent="vbox_instinct_box/panel_intution"]
+[node name="label_intuition" type="RichTextLabel" parent="vbox_instinct_box/panel_intuition"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -137,12 +181,12 @@ fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="button_intution" type="Button" parent="vbox_instinct_box/panel_intution"]
+[node name="button_intution" type="Button" parent="vbox_instinct_box/panel_intuition"]
 custom_minimum_size = Vector2(-5.18, 0)
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 1.20603
-anchor_right = 1.44724
+anchor_left = 1.69849
+anchor_right = 1.9397
 anchor_bottom = 1.02857
 grow_horizontal = 2
 grow_vertical = 2
@@ -151,8 +195,29 @@ theme_override_font_sizes/font_size = 25
 text = "ROLL"
 metadata/_edit_use_anchors_ = true
 
+[node name="panel_intuition_count3" type="Panel" parent="vbox_instinct_box/panel_intuition"]
+layout_mode = 0
+offset_left = 240.0
+offset_top = -0.000167847
+offset_right = 280.0
+offset_bottom = 33.9998
+
+[node name="label_intuition_count" type="RichTextLabel" parent="vbox_instinct_box/panel_intuition/panel_intuition_count3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("1_fofvp")
+theme_override_font_sizes/normal_font_size = 30
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="bt_start" type="Button" parent="."]
 visible = false
+layout_mode = 0
 offset_left = 522.0
 offset_top = 203.0
 offset_right = 633.0
