@@ -1,9 +1,33 @@
-[gd_scene format=3 uid="uid://crmormmbd68vd"]
+[gd_scene load_steps=2 format=3 uid="uid://crmormmbd68vd"]
+
+[ext_resource type="FontFile" uid="uid://uo56arr134mq" path="res://asset/font/Silver.ttf" id="1_adifi"]
 
 [node name="ExplorationUI" type="Control"]
 layout_mode = 3
+anchor_left = 0.0486111
+anchor_top = 0.0772727
+anchor_right = 0.956944
+anchor_bottom = 0.427273
+offset_right = 3.05176e-05
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="panel_story" type="Panel" parent="."]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="label_story" type="RichTextLabel" parent="panel_story"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("1_adifi")
+theme_override_font_sizes/normal_font_size = 30

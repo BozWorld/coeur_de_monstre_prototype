@@ -1,6 +1,12 @@
 // Dans sequence1_bosquet.ink
 // Séquence 1 : Réveil dans le bosquet - Type: Exploration - Instinct dominant: Intuition
 
+VAR name = "inconnu"
+VAR level = 1
+VAR lien_dice = 0
+VAR adversite_dice = 0
+VAR intuition_dice = 0
+
 ->sequence1_start
 === sequence1_start ===
 VAR successes_count = 0
@@ -9,6 +15,37 @@ VAR found_berries = false
 VAR found_animal_traces = false
 VAR found_church_traces = false
 VAR analyzed_environment = false
+{ lien_dice == 0 :
+    tu n'as pas encore développé de lien avec cet environnement.
+- else:
+    Tu as déjà commencé à t'adapter à cet environnement, mais tu sens que tu dois encore approfondir ta connexion.
+}
+
+{ adversite_dice == 0 :
+    Tu n'as pas encore rencontré d'adversité dans ce monde.
+- else:
+    Tu commences à percevoir les dangers qui t'entourent, mais ils restent flous et indéfinis.
+}
+{ intuition_dice == 0 :
+    Tu n'as pas encore développé ton instinct, mais une voix intérieure te pousse à rester vigilant.
+- else:
+    Ton instinct commence à se réveiller, te permettant de ressentir les menaces potentielles.
+}
+{ level == 1 :
+    Tu es au début de ton voyage, un novice dans ce monde étrange.
+- else:
+    Tu as déjà fait quelques pas dans cette aventure, mais beaucoup reste à découvrir.
+}
+
+{ name == "inconnu" or name == "":
+    Tu es un être sans nom, une créature de l'ombre, émergeant d'un sommeil profond. Ton corps est étrangement léger, presque éthéré. Tu n'as pas de souvenirs, juste une sensation de vide et une pulsion inexplicable de découvrir ce qui t'entoure.
+- else:
+    { name =="inconnu":
+        Tu es un être sans nom, une créature de l'ombre, émergeant d'un sommeil profond. Ton corps est étrangement léger, presque éthéré. Tu n'as pas de souvenirs, juste une sensation de vide et une pulsion inexplicable de découvrir ce qui t'entoure.
+    - else:
+        Tu es {name}, un être qui a traversé des épreuves, mais qui se retrouve maintenant dans un monde étrange. Ton corps est différent, mais ton esprit reste vif. Tu sens que tu dois explorer cet endroit pour retrouver tes repères.
+    }
+}
 
 Tu te réveilles dans une clairière brumeuse. Tes sens sont encore engourdis, mais quelque chose en toi pulse d'une énergie nouvelle. L'air est épais, chargé d'une humidité qui colle à ta peau... ou ce qui en tient lieu désormais.
 

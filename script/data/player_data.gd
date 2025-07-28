@@ -4,9 +4,9 @@ class_name PlayerData
 
 @export var health_points: int = 8
 @export var instinc_dice: Dictionary = {
-    "lien": 2,
-    "adversité": 2,
-    "intution": 1
+    "lien": 0,
+    "adversité": 0,
+    "intuition": 0
 }
 
 
@@ -15,6 +15,25 @@ class_name PlayerData
 @export var inventory: Array[String] = []
 @export var completed_sequences: Array[String] = []
 @export var chapter_progress: Dictionary = {}
+
+
+func _set_lien_dice(value: int):
+    instinc_dice["lien"] = value
+
+func _set_adversite_dice(value: int):
+    instinc_dice["adversité"] = value
+
+func _set_intuition_dice(value: int):
+    instinc_dice["intuition"] = value
+
+func get_lien_dice() -> int:
+    return instinc_dice["lien"]
+
+func get_adversite_dice() -> int:
+    return instinc_dice["adversité"]
+
+func get_intuition_dice() -> int:
+    return instinc_dice["intuition"]
 
 func add_mutation(mutation_name: String):
     mutation.append(mutation_name)

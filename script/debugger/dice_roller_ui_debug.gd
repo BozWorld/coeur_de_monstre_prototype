@@ -118,5 +118,10 @@ func _on_bt_start_pressed() -> void:
 	_GameManager.current_social_points = current_social_lvl
 	_GameManager.current_adversity_points = current_adversity_lvl
 	_GameManager.current_intuition_points = current_intuition_lvl
+	_GameManager.begin_game()
+	_GameManager.set_lien_dice(current_social_dice)
+	_GameManager.set_adversite_dice(current_adversity_dice)
+	_GameManager.set_intuition_dice(current_intuition_dice)
+	_GameManager.start_sequence("sequence1_start")
 	print("your social points: ", _GameManager.current_social_points, " adversity points: ", _GameManager.current_adversity_points, " intuition points: ", _GameManager.current_intuition_points)
 	pass # Replace with function body.

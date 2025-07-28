@@ -89,10 +89,10 @@ metadata/_edit_use_anchors_ = true
 
 [node name="panel_social_count" type="Panel" parent="vbox_instinct_box/panel_social"]
 layout_mode = 0
-offset_left = 240.0
-offset_top = -0.000167847
-offset_right = 280.0
-offset_bottom = 33.9998
+anchor_left = 1.20603
+anchor_right = 1.36683
+anchor_bottom = 1.0
+metadata/_edit_use_anchors_ = true
 
 [node name="label_social_count" type="RichTextLabel" parent="vbox_instinct_box/panel_social/panel_social_count"]
 layout_mode = 1
@@ -144,10 +144,10 @@ metadata/_edit_use_anchors_ = true
 
 [node name="panel_adversite_count2" type="Panel" parent="vbox_instinct_box/panel_adversite"]
 layout_mode = 0
-offset_left = 240.0
-offset_top = -0.000167847
-offset_right = 280.0
-offset_bottom = 33.9998
+anchor_left = 1.20603
+anchor_right = 1.36683
+anchor_bottom = 1.0
+metadata/_edit_use_anchors_ = true
 
 [node name="label_adversite_count" type="RichTextLabel" parent="vbox_instinct_box/panel_adversite/panel_adversite_count2"]
 layout_mode = 1
@@ -197,10 +197,10 @@ metadata/_edit_use_anchors_ = true
 
 [node name="panel_intuition_count3" type="Panel" parent="vbox_instinct_box/panel_intuition"]
 layout_mode = 0
-offset_left = 240.0
-offset_top = -0.000167847
-offset_right = 280.0
-offset_bottom = 33.9998
+anchor_left = 1.20603
+anchor_right = 1.36683
+anchor_bottom = 1.02857
+metadata/_edit_use_anchors_ = true
 
 [node name="label_intuition_count" type="RichTextLabel" parent="vbox_instinct_box/panel_intuition/panel_intuition_count3"]
 layout_mode = 1
