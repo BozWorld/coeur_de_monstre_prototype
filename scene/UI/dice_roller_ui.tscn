@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bncpg38y1tgt6" path="res://script/debugger/dice_roller_ui_debug.gd" id="1_7x8h0"]
 [ext_resource type="FontFile" uid="uid://uo56arr134mq" path="res://asset/font/Silver.ttf" id="1_fofvp"]
 
-[node name="DiceRollerUI" type="Control" node_paths=PackedStringArray("button_social", "button_adversity", "button_intuition", "button_start", "_result_label", "result_panel", "label_social_count", "label_ardversite_count", "label_intuition_count")]
+[node name="DiceRollerUI" type="Control" node_paths=PackedStringArray("button_social", "button_adversity", "button_intuition", "button_start", "_result_label", "result_panel", "label_social_count", "label_adversity_count", "label_intuition_count")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -18,7 +18,7 @@ button_start = NodePath("bt_start")
 _result_label = NodePath("result_panel/result_label")
 result_panel = NodePath("result_panel")
 label_social_count = NodePath("vbox_instinct_box/panel_social/panel_social_count/label_social_count")
-label_ardversite_count = NodePath("vbox_instinct_box/panel_adversite/panel_adversite_count2/label_adversite_count")
+label_adversity_count = NodePath("vbox_instinct_box/panel_adversite/panel_adversite_count2/label_adversite_count")
 label_intuition_count = NodePath("vbox_instinct_box/panel_intuition/panel_intuition_count3/label_intuition_count")
 
 [node name="panel_instincs" type="Panel" parent="."]
@@ -114,12 +114,9 @@ metadata/_edit_use_anchors_ = true
 
 [node name="label_adversite" type="RichTextLabel" parent="vbox_instinct_box/panel_adversite"]
 layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
+anchors_preset = 15
 anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -21.0
-offset_bottom = 21.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/normal_font = ExtResource("1_fofvp")

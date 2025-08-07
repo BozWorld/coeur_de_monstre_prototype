@@ -1,83 +1,149 @@
 extends Node
 
-var player_data: PlayerData
-var current_sequence: SequenceData
-var story_manager: StoryManager
-var dice_manager: DiceManager
-var crisis_manager: CrisisManager
-var current_social_points: int = 0
-var current_adversity_points: int = 0
-var current_intuition_points: int = 0
+
+const SAVE_FILE = "user://save_game.json"
+# --- Signaux pour la communication ---
+signal story_requested(story_name)
+signal ui_visibility_requested(ui_name, visibility)
+signal dice_roll_requested(instinct_distribution)
 signal sequence_started(sequence_name)
 signal sequence_completed(results)
 signal crisis_triggered(crisis_type)
-signal chapter_completed(chapter_name)
-signal request_show_exploration_ui
+signal variable_updated(name, value)
+signal choice_buttons_requested(choices)
+# --- Données du jeu ---
+var player_data: PlayerData
 
-func _ready() -> void:
-	_StoryManager._initialize_ink_player()
-	return
+var current_sequence: String = ""
+var current_social_points: int = 0
+var current_adversity_points: int = 0
+var current_intuition_points: int = 0
+var party_beginned: bool = false
+
+signal stats_updated(instinct_name, points, tier)
+signal mutation_unlocked(mutation_id)
+
+func _ready():
+	# Aucune référence directe aux autres managers
+	print("GameManager initialized")
+
+func begin():
+	emit_signal("ui_visibility_requested", "dice_roller_ui", true)
+	initialize_player_data()
 
 func begin_game():
-	# Initialise les managers
-	initialize_player_data()
-	emit_signal("request_show_exploration_ui")
-	# story_manager = StoryManager.new()
-	# dice_manager = DiceManager.new()
-	# crisis_manager = CrisisManager.new()
+	emit_signal("ui_visibility_requested", "dice_roller_ui", false)
+	emit_signal("ui_visibility_requested", "exploration_ui", true)
+	emit_signal("story_requested", "sequence1_bosquet")
+
+func _on_choice_selected(index):
+	var story_manager = get_node("/root/MainScene/story_manager")
+	if story_manager:
+		story_manager.apply_choice_and_continue(index)
+	# _StoryManager._ink_player.choose_choice_index(index)
+	# _StoryManager._continue_story()
 	
-	# Charge le premier chapitre
-	#load_chapter("chapter1")
-
-
-func activate_dice_menu():
-	return
-	# # Affiche le menu des dés
-	# if UiManager and UiManager.dice_roller_ui:
-	# 	UiManager.dice_roller_ui.visible = true
-
-func set_lien_dice(value: int) -> void:
-	player_data._set_lien_dice(value)
-	if story_manager:
-		story_manager._set_variable("lien_dice", value)
-
-func set_adversite_dice(value: int) -> void:
-	player_data._set_adversite_dice(value)
-	if story_manager:
-		story_manager._set_variable("adversite_dice", value)
-
-func set_intuition_dice(value: int) -> void:
-	player_data._set_intuition_dice(value)
-	if story_manager:
-		story_manager._set_variable("intuition_dice", value)
-
+func _on_choices_ready(choices):
+	emit_signal("choice_buttons_requested", choices)
+	
 func initialize_player_data():
-	# Initialise les données du joueur
 	player_data = PlayerData.new()
 	player_data.health_points = 8
-	player_data.instinc_dice = {
-		"lien": 0,
-		"adversité": 0,
-		"intuition": 0
+	player_data.instincts = {
+		"lien": {"points": 0, "dice": 0},
+		"adversité": {"points": 0, "dice": 0},
+		"intuition": {"points": 0, "dice": 0}
 	}
-	return
 
-func choose_sequence(sequence_name: String):
-	# Choisit une séquence à lancer
-	# current_sequence = SequenceData.new(sequence_name)
+func update_story_variables() -> void:
+	# Synchroniser avec StoryManager à chaque changement
+	var story_manager = get_tree().get_first_node_in_group("story_manager")
+	if story_manager and story_manager._ink_player:
+		# Synchroniser les dés
+		story_manager._ink_player.set_variable("lien_dice", player_data.instincts["lien"]["dice"])
+		story_manager._ink_player.set_variable("adversite_dice", player_data.instincts["adversité"]["dice"])
+		story_manager._ink_player.set_variable("intuition_dice", player_data.instincts["intuition"]["dice"])
+		
+		# Autres variables importantes
+		for mutation in player_data.mutations:
+			story_manager._ink_player.set_variable("has_" + mutation, true)
+
+# --- Fonctions façade pour simplifier l'accès ---
+func set_lien_dice(value: int) -> void:
+	if player_data:
+		player_data.set_dice("lien", value)
+	emit_signal("variable_updated", "lien_dice", value)
+
+func get_lien_dice() -> int:
+	if player_data:
+		return player_data.instincts["lien"]["dice"]
+	return 0
+
+func set_adversite_dice(value: int) -> void:
+	if player_data:
+		player_data.set_dice("adversité", value)
+	emit_signal("variable_updated", "adversite_dice", value)
+
+func get_adversite_dice() -> int:
+	if player_data:
+		return player_data.instincts["adversité"]["dice"]
+	return 0
+func set_intuition_dice(value: int) -> void:
+	if player_data:
+		player_data.set_dice("intuition", value)
+	emit_signal("variable_updated", "intuition_dice", value)
+
+func get_intuition_dice() -> int:
+	if player_data:
+		return player_data.instincts["intuition"]["dice"]
+	return 0
+
+func start_sequence(sequence_name: String):
+	current_sequence = sequence_name
 	emit_signal("sequence_started", sequence_name)
+	emit_signal("ui_visibility_requested", "exploration_ui", true)
 
-func start_sequence(_sequence_name: String):
-	# if UiManager:
-	# 	UiManager.exploration_ui.visible = true
-	# lance une sequence ( exploration / combat / social)
-	pass
+func save_game() -> bool:
+	var save_data = {
+		"health": player_data.health_points,
+		"instincts": player_data.instincts,
+		"mutations": player_data.mutations,
+		"companions": player_data.companions,
+		"current_sequence": current_sequence,
+		"inventory": player_data.inventory,
+		"timestamp": Time.get_datetime_string_from_system()
+	}
 	
-func complete_sequence(results: Dictionary):
-	# traite les résultats de la séquence
-	emit_signal("sequence_completed", results)
+	# Sauvegarder l'état d'Ink si disponible
+	var story_manager = get_tree().get_first_node_in_group("story_manager")
+	if story_manager and story_manager._ink_player:
+		save_data["ink_state"] = story_manager._ink_player.get_state()
+	
+	var file = FileAccess.open(SAVE_FILE, FileAccess.WRITE)
+	if file:
+		file.store_string(JSON.stringify(save_data))
+		return true
+	return false
 
-func trigger_crisis(crisis_type: String):
-	# déclenche une crise spécifique
-	print("Crise déclenchée : ", crisis_type)
-	emit_signal("crisis_triggered", crisis_type)
+func load_game() -> bool:
+	if not FileAccess.file_exists(SAVE_FILE):
+		return false
+	
+	var file = FileAccess.open(SAVE_FILE, FileAccess.READ)
+	var save_data = JSON.parse_string(file.get_as_text())
+	
+	# Restaurer les données du joueur
+	player_data.health_points = save_data["health"]
+	player_data.instincts = save_data["instincts"]
+	player_data.mutations = save_data["mutations"]
+	player_data.companions = save_data["companions"]
+	player_data.inventory = save_data["inventory"]
+	current_sequence = save_data["current_sequence"]
+	
+	# Restaurer l'état d'Ink
+	if "ink_state" in save_data:
+		var story_manager = get_tree().get_first_node_in_group("story_manager")
+		if story_manager and story_manager._ink_player:
+			story_manager._ink_player.set_state(save_data["ink_state"])
+	
+	return true

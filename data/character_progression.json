@@ -1,0 +1,7 @@
+{
+  "tiers": {
+    "1": {"name": "Primitif", "required_successes": 1},
+    "2": {"name": "Éveillé", "required_successes": 3},
+    "3": {"name": "Transcendé", "required_successes": 5}
+  }
+}

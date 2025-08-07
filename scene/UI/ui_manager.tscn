@@ -1,17 +1,17 @@
 [gd_scene load_steps=4 format=3 uid="uid://djobjhdwj05b4"]
 
-[ext_resource type="PackedScene" uid="uid://b1b03rocvbsr5" path="res://scene/UI/dice_roller_ui.tscn" id="1_53q4g"]
-[ext_resource type="Script" uid="uid://ckav823c8blug" path="res://script/manager/ui_manager.gd" id="1_f1603"]
-[ext_resource type="PackedScene" uid="uid://crmormmbd68vd" path="res://scene/UI/exploration_ui.tscn" id="3_0j7aq"]
+[ext_resource type="Script" uid="uid://ckav823c8blug" path="res://script/manager/ui_manager.gd" id="1_3gpml"]
+[ext_resource type="PackedScene" uid="uid://b1b03rocvbsr5" path="res://scene/UI/dice_roller_ui.tscn" id="2_3rd2d"]
+[ext_resource type="PackedScene" uid="uid://crmormmbd68vd" path="res://scene/UI/exploration_ui.tscn" id="3_58351"]
 
-[node name="manager_ui" type="CanvasLayer" node_paths=PackedStringArray("dice_roller_ui", "start_button", "exploration_ui", "exploration_label")]
-script = ExtResource("1_f1603")
+[node name="ui_manager" type="CanvasLayer" node_paths=PackedStringArray("dice_roller_ui", "start_button", "exploration_ui", "exploration_label")]
+script = ExtResource("1_3gpml")
 dice_roller_ui = NodePath("DiceRollerUI")
 start_button = NodePath("StartButton")
 exploration_ui = NodePath("ExplorationUI")
 exploration_label = NodePath("ExplorationUI/panel_story/label_story")
 
-[node name="DiceRollerUI" parent="." instance=ExtResource("1_53q4g")]
+[node name="DiceRollerUI" parent="." instance=ExtResource("2_3rd2d")]
 
 [node name="StartButton" type="Control" parent="."]
 visible = false
@@ -33,7 +33,7 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "START THE GAME"
 
-[node name="ExplorationUI" parent="." instance=ExtResource("3_0j7aq")]
+[node name="ExplorationUI" parent="." instance=ExtResource("3_58351")]
 visible = false
 
 [connection signal="pressed" from="StartButton/Button" to="." method="_on_button_pressed"]

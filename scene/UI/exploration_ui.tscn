@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://crmormmbd68vd"]
+[gd_scene load_steps=3 format=3 uid="uid://crmormmbd68vd"]
 
+[ext_resource type="Script" uid="uid://k6w2xrioq1dd" path="res://script/ui/choice_container.gd" id="1_86acq"]
 [ext_resource type="FontFile" uid="uid://uo56arr134mq" path="res://asset/font/Silver.ttf" id="1_adifi"]
 
 [node name="ExplorationUI" type="Control"]
@@ -12,6 +13,33 @@ offset_right = 3.05176e-05
 grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.308869
+anchor_top = 1.11039
+anchor_right = 0.727829
+anchor_bottom = 2.45454
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="choice_container" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.992701
+anchor_bottom = 1.01932
+offset_bottom = -1.52588e-05
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+script = ExtResource("1_86acq")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/choice_container"]
+layout_mode = 2
+theme_override_constants/separation = 5
 
 [node name="panel_story" type="Panel" parent="."]
 layout_mode = 1
